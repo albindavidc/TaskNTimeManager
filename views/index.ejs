@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<div class="container py-5 my-5">
+  <div class="container card" style="max-width: 600px;">
+    <div class="card-body">
+      <h1>Welcome to Home Page</h1>
+      <p class="h2 card-title">
+        <%= user.firstName + ' ' + user.lastName %>
+      </p>
+
+      <p class="lead">Email: <%= user.email %> </p>
+
+      <a href="/logout">Logout</a>
+
+    </div>
+  </div>
+</div>
