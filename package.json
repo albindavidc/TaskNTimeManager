@@ -6,11 +6,19 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-ejs-layouts": "^2.5.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "logger": "^0.0.1",
+    "method-override": "^3.0.0",
+    "morgan": "~1.9.1",
+    "nocache": "^4.0.0",
+    "session": "^0.1.0",
+    "uuid": "^9.0.1"
   }
 }
