@@ -4,7 +4,7 @@ const router=express.Router();
 //authcontroller
 const authController=require('../controller/authController');
 
-const {isLoggedOut}=require('../middleware/logoutMiddileware');
+const {isLoggedOut}=require('../middleware/logoutMiddleware');
 
 //user
 
