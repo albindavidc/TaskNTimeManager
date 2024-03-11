@@ -1,0 +1,88 @@
+<div class="container card py-5 my-5" style="max-width: 550px;">
+    <h1>
+        <%= locals.title %>
+    </h1>
+    <form action="/register" method="POST">
+        <% if (success.length> 0) { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= success %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <% } %>
+                <% if (error.length> 0) { %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <%= error %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <% } %>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input name="firstName" type="text" class="form-control" id="firstName"
+                                    placeholder="First Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input name="lastName" type="text" class="form-control" id="lastName"
+                                    placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <label for="email" class="form-label">email</label>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="pwd" class="form-label">Password</label>
+                                <input name="pwd" type="password" class="form-control" id="pwd" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="pwdConf" class="form-label">password confirmation</label>
+                                <input name="pwdConf" type="password" class="form-control" id="pwdConf" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary my-2">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit',function(event){
+            //prevent form submission
+            event.preventDefault();
+
+            //check if the form is valid
+            if(!form.checkValidity()){
+                return;
+            }
+            //custom validation for password length
+            const password = document.getElementById('pwd');
+            if(password.value.length<8){
+                password.setCustomValidity('password must be 8 characters long.');
+                password.reportValidity();
+                return;
+            }else{
+                password.setCustomValidity('');//clear custom validity message
+            }
+            //check if password match
+            const pwdConf = document.getElementById('pwdConf');
+            if(password.value !== pwdConf.value){
+                pwdConf.setCustomValidity('Password do not match');
+                pwdConf.reportValidity();
+                return;
+            }else{
+                pwdConf.setCustomValidity('');
+            }
+
+            //form is valid,
+            form.submit();
+        });
+
+        // Add input event listeners to reset custom validity messages when the user corrects them
+        document.querySelectorAll('input[type="password"]').forEach(function (input) {
+            input.addEventListener('input', function () {
+                input.setCustomValidity('');
+            });
+        });
+    })
+</script>
