@@ -49,6 +49,10 @@ module.exports={
           lastName,
           email,
           password:hashpwd,
+
+
+
+          
         });
 
         if(user){

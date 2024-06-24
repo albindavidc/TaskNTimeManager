@@ -22,6 +22,7 @@ const authRouter=require('./src/routes/authRoutes');
 const userRouter=require('./src/routes/userRoutes');
 const adminRouter=require('./src/routes/adminRoutes');
 
+
 const app = express();
 
 // Connect Database
