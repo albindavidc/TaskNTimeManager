@@ -28,7 +28,7 @@ module.exports={
     });
   },
   userRegister: async(req,res)=>{
-    const {firstName,lastName,email,pwd,pwdConf} = req.body;
+    const {firstName,lastName,email,pwd,pwdConf,antLab} = req.body;
 
     const isExist = await User.findOne({email});
 
@@ -49,6 +49,7 @@ module.exports={
           lastName,
           email,
           password:hashpwd,
+          antLab,
 
 
 

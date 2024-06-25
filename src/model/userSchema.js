@@ -17,6 +17,14 @@ const userSchema = new Schema({
         type: String,
         unique: true,
     },
+
+    
+    antLab:{
+        type : String,
+        required:true,
+    },
+
+
     password: {
         type: String,
         required: true,
@@ -25,6 +33,9 @@ const userSchema = new Schema({
         type: String,
         default: false,
     },
+
+
+ 
 
     
 },
