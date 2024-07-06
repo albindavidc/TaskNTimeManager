@@ -23,6 +23,7 @@ const userRouter=require('./src/routes/userRoutes');
 const adminRouter=require('./src/routes/adminRoutes');
 
 
+
 const app = express();
 
 // Connect Database
@@ -80,5 +81,6 @@ app.use(function(err, req, res, next) {
 
 
 
-
 module.exports = app;
+
+

@@ -1,38 +1,56 @@
-<div class="container card py-5 my-5" style="max-width: 550px;">
-    <h1 class="text-center">
-        <%= locals.title %>
-    </h1>
+<div class="container card py-5 my-5" style="max-width: 550px">
+  <h1 class="text-center"><%= locals.title %></h1>
 
-    <form action="/login" method="POST" class="card-body">
+  <form action="/login" method="POST" class="card-body">
+    <% if (success.length> 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= success %>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <% } %> <% if (error.length> 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= error %>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <% } %>
+    <label for="email" class="form-label mb-2">Email</label>
+    <input
+      name="email"
+      type="email"
+      class="form-control mb-4"
+      id="email"
+      placeholder="example@email.com"
+      required
+    />
+    <label for="pwd" class="form-label">Password</label>
+    <input name="pwd" type="password" class="form-control" id="pwd" required />
 
-        <% if (success.length> 0) { %>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <%= success %>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <% } %>
-        <% if (error.length> 0) { %>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <%= error %>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <% } %>
-        <label for="email" class="form-label mb-2">Email</label>
-        <input name="email" type="email" class="form-control mb-4" id="email"
-            placeholder="example@email.com" required>
-        <label for="pwd" class="form-label">Password</label>
-        <input name="pwd" type="password" class="form-control" id="pwd" required>
+    <div class="mb-4"></div>
 
+    <button class="btn btn-primary mb-4 w-100" type="submit">Submit</button>
 
+    <svg
+      aria-label="vercel isotype"
+      class="w-[118px] md:w-[210px] lg:opacity-0"
+      fill="none"
+      viewBox="0 0 76 65"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="#000000"></path>
+    </svg>
 
-
-
-        <div class="mb-4"></div> 
-
-        <button class="btn btn-primary mb-4 w-100" type="submit">Submit</button>
-
-
-
-        <p class="text-center">Don't have an account? <a href="/register">Register</a></p>
-    </form>
+    <p class="text-center">
+      Don't have an account? <a href="/register">Register</a>
+    </p>
+  </form>
 </div>
