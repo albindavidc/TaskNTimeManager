@@ -76,6 +76,8 @@ module.exports={
       res.redirect('/login')
     }
 
+    
+
     const user=await User.findOne({email,isAdmin:false});
 
     if(!user){
