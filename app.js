@@ -44,6 +44,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //session
 app.use(session({
   secret:uuidv4(),
